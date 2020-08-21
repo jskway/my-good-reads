@@ -3,6 +3,8 @@ Thank you for your interest in eBay Engineering Team. This repo contains exercis
 
 Please complete the coding exercises below, upload code to a personal git repo, and share the link to your repo.
 
+# Please don't fork this repo. Download/Clone the repository, finish the exercise and upload it as a new repository in your github account. Share with us the link for that github account
+
 ## Prerequisites 
 To build and run the sample code please make sure you have the following prerequisites
 - NodeJs v13.12 or higher
