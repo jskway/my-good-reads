@@ -26,7 +26,7 @@ Please complete the following coding exercises and submit your code to us.
 ### Exercise 1: Design a web page in line with the mockup. 
 > Requirement 1: As a user, I want to see a responsive page similar to the mockup. Sample JSON response is returned when the search term is entered and submitted in the search box. 
 
-> Requirement 2: As a user, I want to add books to my whislist displayed on right section of the web page. 
+> Requirement 2: As a user, I want to add books to my wishlist displayed on right section of the web page. 
 
 > Some helpful fields available in the response that helps you in building the mocks are:  image (coverUrl), title, author, publisher, published & description
 
