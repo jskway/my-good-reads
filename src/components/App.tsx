@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/App.scss';
 import BookSearch from './book-search/BookSearch';
+import BookResults from "./book-results/BookResults"; 
 
 function App() {
+
+  const [allAvailableBooks, setAllAvailableBooks] = useState([]);
+
   return (
       <div>
         <header className="header">
@@ -11,7 +15,8 @@ function App() {
           </div>
         </header>
         <main>
-          <BookSearch/>
+          <BookSearch setAllAvailableBooks={setAllAvailableBooks} />
+          <BookResults allAvailableBooks={allAvailableBooks} />
         </main>
 
       </div>

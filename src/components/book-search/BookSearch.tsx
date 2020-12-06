@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { getBooksByType } from "./book-search.service";
 
-const BookSearch = () => {
+const BookSearch = (
+    {setAllAvailableBooks}: {setAllAvailableBooks: Function}
+) => {
     const [bookType, updateBookType] = useState("");
     const [bookTypeToSearch, updateBookTypeToSearch] = useState("");
-    const [allAvailableBooks, setAllAvailableBooks] = useState([]);
+
     async function requestBooks() {
         if (bookTypeToSearch) {
             const allBooks = await getBooksByType(bookTypeToSearch);
@@ -18,6 +20,7 @@ const BookSearch = () => {
         }
         getAllBooks();
     }, [bookTypeToSearch]);
+
     return (
             <>
                 <div className="book--container">
@@ -59,8 +62,6 @@ const BookSearch = () => {
                         </div>
                     </div>
                 </div>
-                {                <pre>{JSON.stringify(allAvailableBooks, null, 4)}</pre>
-                }
             </>
     );
 };
