@@ -66,21 +66,80 @@ main {
   margin: 0 auto;
 }
 
+.container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: stretch;
+
+  @media (max-width: $mobile) {
+    flex-flow: column-reverse;
+    align-items: center;
+  }
+}
+
+.books-container {
+  padding: $spacing-xs $spacing-med;
+  flex-grow: 3;
+}
+
 .reading-list-container {
-  padding: 0;
   width: 400px;
   height: 100vh;
+  flex-grow: 1;
 
-  h2 {
-    position: relative;
+  @media (max-width: $mobile) {
+    width: 100%;
+    height: auto;
+  }
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     color: $white;
     background-color: $gray80;
+    padding: 0 $spacing-xs;
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &.open {
+      transform: rotate(0);
+    }
+
+    &.closed {
+      transform: rotate(180deg);
+    }
+  }
+
+  h2 {
     margin: 0;
     padding: 0.75rem;
     text-align: center;
   }
 
-  button {
+  ul {
+    &.closed {
+      display: none;
+    }
+
+    &.open {
+      display: block;
+    }
+  }
+
+  li {
+    position: relative;
+  }
+
+  .delete-button {
     position: absolute;
     top: $spacing-xxs;
     right: $spacing-xxs;
@@ -110,20 +169,8 @@ form {
 .full-width {
   width: 100%;
 }
+
 .book {
   border: 1px solid silver;
   margin-top: 0.5rem;
-}
-.book--container {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-around;
-  align-items: stretch;
-}
-
-.search-params {
-  flex-grow: 3;
-}
-.sidebar {
-  flex-grow: 1;
 }

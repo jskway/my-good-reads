@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../styles/App.scss';
 import BookSearch from './book-search/BookSearch';
 import BookResults from "./book-results/BookResults"; 
+import ReadingList from "./reading-list/ReadingList";
 
 function App() {
 
@@ -15,10 +16,14 @@ function App() {
           </div>
         </header>
         <main>
-          <BookSearch setAllAvailableBooks={setAllAvailableBooks} />
-          <BookResults allAvailableBooks={allAvailableBooks} />
+          <div className="container">
+            <section className="books-container">
+              <BookSearch setAllAvailableBooks={setAllAvailableBooks} />
+              <BookResults allAvailableBooks={allAvailableBooks} />
+            </section>
+            <ReadingList />
+          </div>
         </main>
-
       </div>
   );
 }
