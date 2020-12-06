@@ -10,7 +10,7 @@ const BookSearch = (
     async function requestBooks() {
         if (bookTypeToSearch) {
             const allBooks = await getBooksByType(bookTypeToSearch);
-            setAllAvailableBooks(allBooks);
+            setAllAvailableBooks(allBooks.items);
         }
     }
 
@@ -26,7 +26,7 @@ const BookSearch = (
                 <div>
                     <form
                         onSubmit={(e) => {
-                            debugger;
+                            //debugger;
                             e.preventDefault();
                            updateBookTypeToSearch(bookType)
                         }}

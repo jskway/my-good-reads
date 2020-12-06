@@ -1,14 +1,19 @@
 import React from "react";
+import Book, { BookObject } from "./Book";
+
 
 const BookResults = (
-  { allAvailableBooks }: { allAvailableBooks: Object[] | [] }
+  { allAvailableBooks }: { allAvailableBooks: BookObject[] }
 ) => {
+
   return (
-      <pre>
-        {
-          JSON.stringify(allAvailableBooks, null, 4)
-        }
-      </pre>
+    <>
+      {
+        allAvailableBooks.map( (book: BookObject) => (
+          <Book book={book} key={book.id} />
+        ))
+      }
+    </>
   )
 }
 

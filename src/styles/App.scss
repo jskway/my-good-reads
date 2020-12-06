@@ -17,11 +17,19 @@ h2 {
   font-weight: 300;
 }
 
+form {
+  margin-bottom: $spacing-xs;
+}
+
 input {
   font-size: 0.8rem;
   border: none;
   border-bottom: 1px solid $gray40;
   padding: $spacing-xxs;
+}
+
+.full-width {
+  width: 100%;
 }
 
 a {
@@ -81,6 +89,12 @@ main {
 .books-container {
   padding: $spacing-xs $spacing-med;
   flex-grow: 3;
+  max-width: 75%;
+
+  @media (max-width: $mobile) {
+    max-width: 100%;
+    padding: $spacing-xs 0;
+  }
 }
 
 .reading-list-container {
@@ -91,6 +105,8 @@ main {
   @media (max-width: $mobile) {
     width: 100%;
     height: auto;
+    border-bottom: 1px solid $gray30;
+    margin-bottom: $spacing-sm;
   }
 
   div {
@@ -162,15 +178,31 @@ main {
   color: $gray40;
 }
 
-form {
-  margin-bottom: $spacing-xs;
-}
-
-.full-width {
-  width: 100%;
-}
-
 .book {
   border: 1px solid silver;
-  margin-top: 0.5rem;
+  margin: $spacing-xs 0;
+  padding: $spacing-med $spacing-sm;
+
+  h5 {
+    font-size: 1.5rem;
+    margin: $spacing-sm 0 $spacing-xs;
+  }
+
+  button {
+    margin-top: $spacing-xs;
+  }
+}
+
+.book--authors {
+  color: $gray70;
+  margin: 0;
+  font-weight: 500;
+}
+
+.book--publisher {
+  font-style: italic;
+}
+
+.book--description {
+  color: $gray70;
 }
