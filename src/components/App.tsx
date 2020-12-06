@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles/App.scss';
+import '../styles/App.scss';
 import BookSearch from './book-search/BookSearch';
 
 function App() {

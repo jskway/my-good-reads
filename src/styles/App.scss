@@ -1,12 +1,13 @@
-@import './variables';
+@import "./variables";
 
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto,
-  'Helvetica Neue', Arial, sans-serif;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
 }
 
 h1,
@@ -111,20 +112,18 @@ form {
 }
 .book {
   border: 1px solid silver;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
 }
 .book--container {
   display: flex;
   flex-flow: row nowrap;
-  justify-content:space-around;
+  justify-content: space-around;
   align-items: stretch;
 }
 
 .search-params {
   flex-grow: 3;
-
 }
 .sidebar {
   flex-grow: 1;
-
 }

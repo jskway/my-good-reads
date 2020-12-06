@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getBooksByType } from "./book-search.service";
 
-
 const BookSearch = () => {
     const [bookType, updateBookType] = useState("");
     const [bookTypeToSearch, updateBookTypeToSearch] = useState("");
@@ -45,7 +44,8 @@ const BookSearch = () => {
                                 <div className="empty">
                                     <p>
                                         Try searching for a topic, for example
-                                        <a onClick={() => {
+                                        <a
+                                            onClick={() => {
                                                 updateBookType("Javascript");
                                             }}
                                         >
