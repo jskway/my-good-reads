@@ -11,7 +11,7 @@ const BookResults = (
     }
 ) => {
 
-  function updateReadingList(id: String) {
+  function addToReadingList(id: String) {
     // Check if the book is in the list already
     const matches = readingList.filter(book => {
       return book.id === id;
@@ -33,7 +33,7 @@ const BookResults = (
 
       // If a valid Book was clicked, update the reading list
       if (id) {
-        updateReadingList(id);
+        addToReadingList(id);
       }
     }}>
       {

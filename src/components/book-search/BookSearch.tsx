@@ -1,65 +1,64 @@
 import React, { useEffect, useState } from "react";
 import { getBooksByType } from "./book-search.service";
+import debounce from "../../shared/debounce/debounce";
 
 const BookSearch = (
-    {setAllAvailableBooks}: {setAllAvailableBooks: Function}
+  {setAllAvailableBooks}: {setAllAvailableBooks: Function}
 ) => {
-    const [bookType, updateBookType] = useState("");
-    const [bookTypeToSearch, updateBookTypeToSearch] = useState("");
+  const [bookTypeToSearch, updateBookTypeToSearch] = useState("");
 
-    async function requestBooks() {
-        if (bookTypeToSearch) {
-            const allBooks = await getBooksByType(bookTypeToSearch);
-            setAllAvailableBooks(allBooks.items);
-        }
+  async function requestBooks() {
+    if (bookTypeToSearch) {
+      const allBooks = await getBooksByType(bookTypeToSearch);
+      setAllAvailableBooks(allBooks.items);
+    }
+  }
+
+  useEffect(() => {
+    async function getAllBooks() {
+        await requestBooks();
     }
 
-    useEffect(() => {
-        async function getAllBooks() {
-            await requestBooks();
-        }
-        getAllBooks();
-    }, [bookTypeToSearch]);
+    debounce(getAllBooks, 500)();
+  }, [bookTypeToSearch]);
 
-    return (
-            <>
-                <div>
-                    <form
-                        onSubmit={(e) => {
-                            //debugger;
-                            e.preventDefault();
-                           updateBookTypeToSearch(bookType)
-                        }}
-                    >
-                        <input
-                            className="full-width"
-                            autoFocus
-                            name="gsearch"
-                            type="search"
-                            value={bookType}
-                            placeholder="Search for books to add to your reading list and press Enter"
-                            onChange={e => updateBookType(e.target.value)}
-                        />
-                    </form>
-                    {!bookType && (
-                        <div className="empty">
-                            <p>
-                                Try searching for a topic, for example
-                                <a
-                                    onClick={() => {
-                                        updateBookType("Javascript");
-                                    }}
-                                >
-                                    {" "}
-                                    "Javascript"
-                                </a>
-                            </p>
-                        </div>
-                    )}
-
-                </div>
-            </>
-    );
+  return (
+    <div>
+      <form
+        onSubmit={(e) => {
+          //debugger;
+          e.preventDefault();
+        }}
+    >
+      <input
+        className="full-width"
+        autoFocus
+        name="gsearch"
+        type="search"
+        value={bookTypeToSearch}
+        placeholder="Search for books to add to your reading list"
+        onChange={e => {
+            updateBookTypeToSearch(e.target.value)
+        }}
+      />
+    </form>
+    {!bookTypeToSearch && (
+      <div className="empty">
+        <p>
+          Try searching for a topic, for example
+          <a
+            onClick={() => {
+              updateBookTypeToSearch("Javascript");
+            }}
+          >
+            {" "}
+            "Javascript"
+          </a>
+        </p>
+      </div>
+    )}
+    </div>
+  );
 };
 
 export default BookSearch;

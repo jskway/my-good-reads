@@ -22,11 +22,12 @@ const Book = ({ book } : { book: BookObject }) => {
 
   return (
     <article className="book">
-      <img src={imageLinks.thumbnail} alt={title} />
-      <h5>{title}</h5>
+      <img src={imageLinks?.thumbnail} alt={title} />
+      <h5>{ title || '[Title Unavailable]' }</h5>
       <p className="book--authors">
         By{" "} 
       {
+        authors &&
         authors.map( (author: string, idx: number) => {
           return idx === authors.length - 1
             ? `${author}`
@@ -39,7 +40,7 @@ const Book = ({ book } : { book: BookObject }) => {
           publisher?.replaceAll(`"`, ``)
         } <span>[{publishedDate}]</span>
       </p>
-      <p className="book--description">{description}</p>
+      <p className="book--description">{description || '[Description Unavailable]'}</p>
       <button
         data-id={id}
       >Add to wishlist</button>
