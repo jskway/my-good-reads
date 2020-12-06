@@ -1,22 +1,13 @@
 import React, { useState } from "react";
 import { ReactComponent as Arrow } from "../../shared/assets/expand-arrow.svg";
+import { BookObject } from "../book-results/Book";
 
-const sampleList = [
-  {
-    id: '1',
-    title: 'Book one'
-  },
-  {
-    id: '2',
-    title: 'Book two'
-  }
-]
-
-const ReadingList = () => {
-  const [ readingList, setReadingList ] = useState(sampleList);
+const ReadingList = (
+  { readingList, setReadingList } :
+  { readingList: BookObject[], setReadingList: Function }
+) => {
   const [ isOpen, setIsOpen ] = useState(true);
 
-  // TODO
   // handleClick was attached to the <ul> for event delegation
   // Setting the type of e to React.MouseEvent throws an error saying
   // .getAttribute does not exist on target
@@ -56,14 +47,16 @@ const ReadingList = () => {
         {
           !readingList.length
             ? (
-              <span>No items in reading list</span>
+              <span className="reading-list-empty">No items in reading list</span>
             )
             : (readingList.map( book => (
             <li
               key={book.id}
               className="reading-list-content"
             >
-              {book.title}
+              <span className="content-title">
+                {book.volumeInfo.title}
+              </span>
               <button
                 className="delete-button"
                 data-id={book.id}

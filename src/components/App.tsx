@@ -5,8 +5,8 @@ import BookResults from "./book-results/BookResults";
 import ReadingList from "./reading-list/ReadingList";
 
 function App() {
-
-  const [allAvailableBooks, setAllAvailableBooks] = useState([]);
+  const [ allAvailableBooks, setAllAvailableBooks ] = useState([]);
+  const [ readingList, setReadingList ] = useState([]);
 
   return (
       <div>
@@ -19,9 +19,16 @@ function App() {
           <div className="container">
             <section className="books-container">
               <BookSearch setAllAvailableBooks={setAllAvailableBooks} />
-              <BookResults allAvailableBooks={allAvailableBooks} />
+              <BookResults
+                allAvailableBooks={allAvailableBooks}
+                readingList={readingList}
+                setReadingList={setReadingList}
+              />
             </section>
-            <ReadingList />
+            <ReadingList
+              setReadingList={setReadingList}
+              readingList={readingList}
+            />
           </div>
         </main>
       </div>

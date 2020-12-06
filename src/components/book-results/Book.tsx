@@ -40,7 +40,9 @@ const Book = ({ book } : { book: BookObject }) => {
         } <span>[{publishedDate}]</span>
       </p>
       <p className="book--description">{description}</p>
-      <button>Add to wishlist</button>
+      <button
+        data-id={id}
+      >Add to wishlist</button>
     </article>
   )
 }

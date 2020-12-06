@@ -80,7 +80,7 @@ main {
   justify-content: space-around;
   align-items: stretch;
 
-  @media (max-width: $mobile) {
+  @media (max-width: $tablet) {
     flex-flow: column-reverse;
     align-items: center;
   }
@@ -89,9 +89,9 @@ main {
 .books-container {
   padding: $spacing-xs $spacing-med;
   flex-grow: 3;
-  max-width: 75%;
+  max-width: 70%;
 
-  @media (max-width: $mobile) {
+  @media (max-width: $tablet) {
     max-width: 100%;
     padding: $spacing-xs 0;
   }
@@ -101,12 +101,18 @@ main {
   width: 400px;
   height: 100vh;
   flex-grow: 1;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 120px;
+  margin-right: $spacing-med;
 
-  @media (max-width: $mobile) {
+  @media (max-width: $tablet) {
+    position: static;
     width: 100%;
     height: auto;
     border-bottom: 1px solid $gray30;
     margin-bottom: $spacing-sm;
+    margin-right: 0;
   }
 
   div {
@@ -142,6 +148,9 @@ main {
   }
 
   ul {
+    list-style: none;
+    padding: 0;
+
     &.closed {
       display: none;
     }
@@ -155,17 +164,26 @@ main {
     position: relative;
   }
 
+  .content-title {
+    display: inline-block;
+    max-width: 80%;
+  }
+
   .delete-button {
     position: absolute;
-    top: $spacing-xxs;
+    top: $spacing-xs;
     right: $spacing-xxs;
     padding: 0;
     min-width: 36px;
   }
 }
 
+.reading-list-empty {
+  margin-left: $spacing-sm;
+}
+
 .reading-list-content {
-  padding: $spacing-xxs;
+  padding: $spacing-xs;
 }
 
 .empty {
