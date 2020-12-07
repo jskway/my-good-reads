@@ -28,10 +28,6 @@ input {
   padding: $spacing-xxs;
 }
 
-.full-width {
-  width: 100%;
-}
-
 a {
   cursor: pointer;
   color: $blue-accent;
@@ -43,6 +39,10 @@ a {
   h1 {
     flex: 1;
   }
+}
+
+.full-width {
+  width: 100%;
 }
 
 .header {
@@ -194,6 +194,15 @@ main {
   min-height: 50vh;
   font-size: 1.5rem;
   color: $gray40;
+
+  .empty--link {
+    cursor: pointer;
+    color: $blue-accent;
+
+    &:hover {
+      color: $blue-dark;
+    }
+  }
 }
 
 .book {

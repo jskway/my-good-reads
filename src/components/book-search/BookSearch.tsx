@@ -42,14 +42,15 @@ const BookSearch = (
       <div className="empty">
         <p>
           Try searching for a topic, for example
-          <a
+          <span
+            className="empty--link"
             onClick={() => {
               updateBookTypeToSearch("Javascript");
             }}
           >
             {" "}
             "Javascript"
-          </a>
+          </span>
         </p>
       </div>
     )}
