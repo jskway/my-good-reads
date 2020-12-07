@@ -30,6 +30,8 @@ const ReadingList = (
       <div>
         <h2>My Reading Wishlist</h2>
         <Arrow
+          role="icon"
+          aria-label="list-toggle-icon"
           fill="white"
           onClick={handleToggle}
           className={`
@@ -60,6 +62,7 @@ const ReadingList = (
               <button
                 className="delete-button"
                 data-id={book.id}
+                data-testid={book.id}
               >
                 x
               </button>

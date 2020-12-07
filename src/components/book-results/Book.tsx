@@ -37,8 +37,8 @@ const Book = ({ book } : { book: BookObject }) => {
       </p>
       <p className="book--publisher">
         Published by {
-          publisher?.replaceAll(`"`, ``)
-        } <span>[{publishedDate}]</span>
+          publisher?.replace(/"/g, '')
+        } <span>{`[${publishedDate}]`}</span>
       </p>
       <p className="book--description">{description || '[Description Unavailable]'}</p>
       <button

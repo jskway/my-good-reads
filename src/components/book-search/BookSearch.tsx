@@ -20,6 +20,7 @@ const BookSearch = (
     }
 
     debounce(getAllBooks, 500)();
+    // eslint-disable-next-line
   }, [bookTypeToSearch]);
 
   return (

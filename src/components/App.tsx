@@ -4,7 +4,7 @@ import BookSearch from './book-search/BookSearch';
 import BookResults from "./book-results/BookResults"; 
 import ReadingList from "./reading-list/ReadingList";
 
-function App() {
+const App = () => {
   const [ allAvailableBooks, setAllAvailableBooks ] = useState([]);
   const [ readingList, setReadingList ] = useState([]);
 
