@@ -175,6 +175,10 @@ main {
     right: $spacing-xxs;
     padding: 0;
     min-width: 36px;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 
@@ -232,4 +236,14 @@ main {
 
 .book--description {
   color: $gray70;
+}
+
+.book--btn {
+  color: $white;
+  background: $black;
+  padding: $spacing-xxs $spacing-sm;
+
+  &:hover {
+    cursor: pointer;
+  }
 }

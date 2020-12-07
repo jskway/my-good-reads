@@ -42,6 +42,7 @@ const Book = ({ book } : { book: BookObject }) => {
       </p>
       <p className="book--description">{description || '[Description Unavailable]'}</p>
       <button
+        className="book--btn"
         data-id={id}
       >Add to wishlist</button>
     </article>
