@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { getBooksByType } from "./book-search.service";
-import debounce from "../../shared/debounce/debounce";
+import useDebounceEffect from "../../shared/useDebounceEffect/useDebounceEffect";
 
 const BookSearch = (
   {setAllAvailableBooks}: {setAllAvailableBooks: Function}
 ) => {
   const [bookTypeToSearch, updateBookTypeToSearch] = useState("");
-
+  
   async function requestBooks() {
     if (bookTypeToSearch) {
       const allBooks = await getBooksByType(bookTypeToSearch);
@@ -14,13 +14,8 @@ const BookSearch = (
     }
   }
 
-  useEffect(() => {
-    async function getAllBooks() {
-        await requestBooks();
-    }
-
-    debounce(getAllBooks, 500)();
-    // eslint-disable-next-line
+  useDebounceEffect(() => {
+    requestBooks();
   }, [bookTypeToSearch]);
 
   return (
@@ -39,7 +34,7 @@ const BookSearch = (
         value={bookTypeToSearch}
         placeholder="Search for books to add to your reading list"
         onChange={e => {
-            updateBookTypeToSearch(e.target.value)
+            updateBookTypeToSearch(e.target.value);
         }}
       />
     </form>
